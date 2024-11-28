@@ -74,14 +74,15 @@ body,
 
 @layer base {
   .border-border {
-    /* Your declarations here. */
+    border-color: hsl(var(--border));
   }
 
   .bg-background {
-    /* Your declarations here. */
+    background-color: hsl(var(--background));
   }
 
   .text-foreground {
+    color: hsl(var(--foreground));
   }
   * {
     @apply border-border;

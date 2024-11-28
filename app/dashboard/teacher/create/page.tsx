@@ -43,7 +43,7 @@ const CreateCoursePage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const response = await axios.post("/api/courses", values);
-      router.push(`/teacher/courses/${response.data.id}`);
+      router.push(`/dashboard/teacher/courses/${response.data.id}`);
       toast.success("Course created successfully");
     } catch (error) {
       toast.error("Something went wrong");
@@ -62,7 +62,8 @@ const CreateCoursePage = () => {
           <form
             action=""
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8 mt-8">
+            className="space-y-8 mt-8"
+          >
             <FormField
               control={form.control}
               name="title"
@@ -72,7 +73,7 @@ const CreateCoursePage = () => {
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="e.g. 'Advanced Web Develpement'"
+                      placeholder="e.g. 'Advanced Web Development'"
                       {...field}
                     />
                   </FormControl>
@@ -84,7 +85,7 @@ const CreateCoursePage = () => {
               )}
             />
             <div className="flex items-center gap-x-2">
-              <Link href={"/"}>
+              <Link href={"/dashboard"}>
                 <Button variant={"ghost"} type="button">
                   Cancel
                 </Button>

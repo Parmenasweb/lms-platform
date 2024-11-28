@@ -66,7 +66,7 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-        <Link href={"/teacher/create"}>
+        <Link href={"/dashboard/teacher/create"}>
           <Button>
             <PlusCircle className="h-4 w-4 mr-2" />
             New Course
@@ -98,7 +98,8 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}>
+                  data-state={row.getIsSelected() && "selected"}
+                >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
                       {flexRender(
@@ -113,7 +114,8 @@ export function DataTable<TData, TValue>({
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center">
+                  className="h-24 text-center"
+                >
                   No results.
                 </TableCell>
               </TableRow>
@@ -126,14 +128,16 @@ export function DataTable<TData, TValue>({
           variant="outline"
           size="sm"
           onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}>
+          disabled={!table.getCanPreviousPage()}
+        >
           Previous
         </Button>
         <Button
           variant="outline"
           size="sm"
           onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}>
+          disabled={!table.getCanNextPage()}
+        >
           Next
         </Button>
       </div>

@@ -4,12 +4,13 @@ import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import ToasterProvider from "@/components/providers/toaster-provider";
 import ConfettiProvider from "@/components/providers/confetti-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LMS Platform | by Ibnu",
-  description: "LMS Platform by Next.js ",
+  title: "LMS Platform by parma",
+  description: "LMS Platform",
   icons: {
     icon: "/icon.svg",
   },
@@ -21,14 +22,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    // <Providers>
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
-          <ConfettiProvider />
-          <ToasterProvider />
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ConfettiProvider />
+            <ToasterProvider />
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
+    // </Providers>
   );
 }

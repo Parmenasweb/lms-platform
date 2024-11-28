@@ -1,7 +1,7 @@
 import { getDashboardCourses } from "@/actions/getDashboardCourses";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import CoursesList from "../search/_components/CoursesList";
+import CoursesList from "./search/_components/CoursesList";
 import { CheckCircle, Clock } from "lucide-react";
 import InfoCard from "./_components/InfoCard";
 
