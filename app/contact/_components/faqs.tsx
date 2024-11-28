@@ -20,6 +20,16 @@ const faqData = {
       answer:
         "Yes, we have mobile apps available for both iOS and Android devices.",
     },
+    {
+      question: "How often are new courses added?",
+      answer:
+        "We add new courses and update existing ones on a monthly basis to keep our content current with the latest tech trends.",
+    },
+    {
+      question: "Can I interact with instructors?",
+      answer:
+        "Yes, our platform includes forums where you can ask questions and interact with both instructors and fellow students.",
+    },
   ],
   courses: [
     {
@@ -37,6 +47,16 @@ const faqData = {
       answer:
         "Yes, you receive a certificate of completion for each course you finish.",
     },
+    {
+      question: "Are there any prerequisites for the courses?",
+      answer:
+        "Most of our beginner courses don't have prerequisites. For advanced courses, we clearly state any required prior knowledge or skills.",
+    },
+    {
+      question: "How long does it typically take to complete a course?",
+      answer:
+        "Course duration varies, but most can be completed in 4-6 weeks if you dedicate 3-5 hours per week.",
+    },
   ],
   payment: [
     {
@@ -51,6 +71,16 @@ const faqData = {
       question: "Are there any discounts available?",
       answer:
         "We regularly offer discounts for bulk purchases and during special promotions.",
+    },
+    {
+      question: "Do you offer any subscription plans?",
+      answer:
+        "Yes, we offer monthly and annual subscription plans that give you access to all our courses.",
+    },
+    {
+      question: "Is there an option for corporate or group training?",
+      answer:
+        "Absolutely! We offer special rates and customized training programs for corporate clients and groups.",
     },
   ],
   technical: [
@@ -69,6 +99,16 @@ const faqData = {
       answer:
         "Yes, most of our course materials are available for download and offline viewing.",
     },
+    {
+      question: "Are the video lessons captioned?",
+      answer:
+        "Yes, all our video lessons include captions to enhance accessibility.",
+    },
+    {
+      question: "What do I do if I encounter a bug on the platform?",
+      answer:
+        "If you encounter any technical issues, please report them to our support team via the 'Help' section in your account dashboard.",
+    },
   ],
 };
 
@@ -80,16 +120,20 @@ export function FAQ() {
           Frequently Asked Questions
         </h2>
         <Tabs defaultValue="general" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
             {faqCategories.map((category) => (
-              <TabsTrigger key={category} value={category}>
+              <TabsTrigger
+                key={category}
+                value={category}
+                className="py-2 px-4 text-sm sm:text-base"
+              >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </TabsTrigger>
             ))}
           </TabsList>
           {faqCategories.map((category) => (
             <TabsContent key={category} value={category}>
-              <div className="grid gap-4 mt-4">
+              <div className="grid gap-4 mt-10 md:mt-4">
                 {faqData[category as keyof typeof faqData].map(
                   (item: { question: string; answer: string }, i: number) => (
                     <Card key={i}>

@@ -1,6 +1,6 @@
 import getProgress from "@/actions/getProgress";
 import prisma from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
 import CourseSidebar from "./_components/CourseSidebar";
@@ -33,12 +33,12 @@ export async function generateMetadata(
   });
 
   return {
-    title: "LMS Platform | " + course.title,
+    title: "Wepz academy | " + course.title,
   };
 }
 
 const CourseLayout: React.FC<Props> = async ({ children, params }) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) return redirect("/");
 

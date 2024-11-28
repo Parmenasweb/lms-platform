@@ -2,19 +2,31 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-async function main() {
+async function insertCategories(categories: { name: string }[]) {
   try {
     await prisma.category.createMany({
-      data: [
-        { name: "Computer Science" },
-        { name: "Music" },
-        { name: "Fitness" },
-        { name: "Photography" },
-        { name: "Accounting" },
-        { name: "Engineering" },
-        { name: "Filming" },
-      ],
+      data: categories,
+      skipDuplicates: true,
     });
+    console.log("Categories inserted successfully");
+  } catch (error) {
+    console.error("Error inserting categories: ", error);
+  }
+}
+
+async function main() {
+  const categories = [
+    { name: "repair" },
+    { name: "Hardware" },
+    { name: "software" },
+    { name: "Data recovery" },
+    { name: "DevOps" },
+    { name: "Cybersecurity" },
+    { name: "Data Science" },
+  ];
+
+  try {
+    await insertCategories(categories);
 
     console.log("successfully seeded categories");
   } catch (error) {

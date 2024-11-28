@@ -22,7 +22,8 @@ export const columns: ColumnDef<Course>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           Title
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -35,7 +36,8 @@ export const columns: ColumnDef<Course>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           Price
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -57,7 +59,8 @@ export const columns: ColumnDef<Course>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           Published
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -88,8 +91,9 @@ export const columns: ColumnDef<Course>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <Link
-              href={`/teacher/courses/${id}`}
-              className="flex w-full items-center justify-between">
+              href={`dashboard/teacher/courses/${id}`}
+              className="flex w-full items-center justify-between"
+            >
               <DropdownMenuItem>
                 <Pencil className="mr-2 h-4 w-4" />
                 Edit

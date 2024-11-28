@@ -20,17 +20,23 @@ const Header = () => {
           href="/"
         >
           <Laptop className="h-8 w-8 text-primary transition-transform group-hover:rotate-[-10deg] dark:text-primary-400" />
-          <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent dark:from-primary-400 dark:to-primary-200">
+          <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent dark:from-primary-400 dark:to-primary-200">
             Wepz Academy
           </span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6">
           {/* Navigation Links */}
           <Link
-            href="/dashboard/courses"
+            href="/dashboard/search"
             className="text-sm font-medium hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary-400"
           >
             Courses
+          </Link>
+          <Link
+            href="/blogs"
+            className="text-sm font-medium hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-primary-400"
+          >
+            Blogs
           </Link>
           <Link
             href="/about"
@@ -95,11 +101,18 @@ const Header = () => {
             >
               <nav className="flex flex-col gap-4">
                 <Link
-                  href="/dashboard/courses"
+                  href="/dashboard/search"
                   onClick={() => setIsOpen(false)}
                   className="dark:text-gray-300 dark:hover:text-primary-400"
                 >
                   Courses
+                </Link>
+                <Link
+                  href="/blogs"
+                  onClick={() => setIsOpen(false)}
+                  className="dark:text-gray-300 dark:hover:text-primary-400"
+                >
+                  Blogs
                 </Link>
                 <Link
                   href="/about"
@@ -120,13 +133,13 @@ const Header = () => {
                   variant="outline"
                   onClick={() => setIsOpen(false)}
                 >
-                  Login
+                  <Link href="/sign-in">Login</Link>
                 </Button>
                 <Button
-                  className="w-full dark:bg-primary-600 dark:text-gray-100 dark:hover:bg-primary-700"
+                  className="w-full dark:bg-primary-600 dark:text-gray-800 dark:hover:bg-primary-700"
                   onClick={() => setIsOpen(false)}
                 >
-                  Dashboard
+                  <Link href="/dashboard">Dashboard</Link>
                 </Button>
               </nav>
             </SheetContent>

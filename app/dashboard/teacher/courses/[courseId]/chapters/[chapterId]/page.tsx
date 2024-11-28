@@ -1,6 +1,6 @@
 import { IconBadge } from "@/components/icon-badge";
 import prisma from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -20,7 +20,7 @@ type Props = {
 };
 
 const ChapterIdPage = async ({ params }: Props) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) return redirect("/");
 
@@ -58,7 +58,8 @@ const ChapterIdPage = async ({ params }: Props) => {
           <div className="w-full">
             <Link
               href={`/teacher/courses/${params.courseId}`}
-              className="flex items-center text-sm hover:opacity--75 transition mb-6">
+              className="flex items-center text-sm hover:opacity--75 transition mb-6"
+            >
               <ArrowLeft className="h-4 w-4 mr-2" /> Back to course setup
             </Link>
             <div className="flex items-center justify-between w-full">

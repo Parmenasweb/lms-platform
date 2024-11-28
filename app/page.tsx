@@ -5,6 +5,11 @@ import CourseStatistics from "@/components/landingcomps/CourseStatistics";
 import FeaturedCourses from "@/components/landingcomps/FeaturedCourses";
 import LearningApproach from "@/components/landingcomps/LearningApproach";
 import Testimonials from "@/components/landingcomps/Testimonials";
+import LogoClouds from "@/components/landingcomps/logo-cloud";
+import CTASection from "@/components/landingcomps/cta";
+import FeaturesSection from "@/components/landingcomps/featuresSection";
+import WhyWePZAcademy from "@/components/landingcomps/why-us";
+import { FAQ } from "./contact/_components/faqs";
 
 export default function App() {
   return (
@@ -13,9 +18,14 @@ export default function App() {
       <main className="flex-1 dark:text-gray-100 text-gray-900">
         <HeroSection />
         <CourseStatistics />
+        <LogoClouds />
         <FeaturedCourses />
+        <FeaturesSection />
+        <WhyWePZAcademy />
         <LearningApproach />
         <Testimonials />
+        <FAQ />
+        <CTASection />
       </main>
       <Footer />
     </div>

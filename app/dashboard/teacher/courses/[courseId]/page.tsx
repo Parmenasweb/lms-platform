@@ -1,6 +1,6 @@
 import React from "react";
 import prisma from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { IconBadge } from "@/components/icon-badge";
 import {
@@ -26,7 +26,7 @@ type Props = {
 };
 
 const CourseIdPage: React.FC<Props> = async ({ params }) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) {
     return redirect("/");

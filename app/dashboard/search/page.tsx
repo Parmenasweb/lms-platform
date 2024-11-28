@@ -3,7 +3,7 @@ import React from "react";
 import Categories from "./_components/Categories";
 import SearchInput from "@/components/search-input";
 import getCourses from "@/actions/getCourses";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import CoursesList from "./_components/CoursesList";
 import { Metadata } from "next";
@@ -16,11 +16,11 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "LMS Platform | Search",
+  title: "Wepz Academy | Search",
 };
 
 const SearchPage: React.FC<Props> = async ({ searchParams }) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) return redirect("/");
   const categories = await prisma.category.findMany({

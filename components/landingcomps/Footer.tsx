@@ -11,18 +11,27 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/about"
+                  className="hover:text-primary transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Careers
+                <Link
+                  href="/blogs"
+                  className="hover:text-primary transition-colors"
+                >
+                  Blogs
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Press
+                <Link
+                  href="/contact"
+                  className="hover:text-primary transition-colors"
+                >
+                  Contact Us
                 </Link>
               </li>
               <li>
@@ -33,26 +42,40 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              Tech Repair Resources
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Documentation
+                <Link
+                  href="/repair-guides"
+                  className="hover:text-primary transition-colors"
+                >
+                  Repair Guides
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Help Center
+                <Link
+                  href="/tech-support"
+                  className="hover:text-primary transition-colors"
+                >
+                  Tech Support
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Community
+                <Link
+                  href="/community-forum"
+                  className="hover:text-primary transition-colors"
+                >
+                  Community Forum
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Webinars
+                <Link
+                  href="/webinars"
+                  className="hover:text-primary transition-colors"
+                >
+                  Webinars & Workshops
                 </Link>
               </li>
             </ul>
@@ -61,22 +84,34 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/terms-Of-Services"
+                  className="hover:text-primary transition-colors"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-primary transition-colors"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/cookie-policy"
+                  className="hover:text-primary transition-colors"
+                >
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/gdpr"
+                  className="hover:text-primary transition-colors"
+                >
                   GDPR
                 </Link>
               </li>

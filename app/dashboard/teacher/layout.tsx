@@ -1,5 +1,5 @@
 import { isTeacher } from "@/lib/teacher";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -9,15 +9,15 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "LMS Platform | Teacher Mode",
-  description: "LMS Platform by Next.js ",
+  title: "Wepz academy | Teacher Mode",
+  description: "Wepz academy by parma ",
   icons: {
     icon: "/icon.svg",
   },
 };
 
-const TeacherLayout: React.FC<Props> = ({ children }) => {
-  const { userId } = auth();
+const TeacherLayout: React.FC<Props> = async ({ children }) => {
+  const { userId } = await auth();
 
   if (!isTeacher(userId)) return redirect("/");
 

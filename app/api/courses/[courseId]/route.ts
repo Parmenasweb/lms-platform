@@ -1,5 +1,5 @@
 import prisma from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import Mux from "@mux/mux-node";
 
@@ -13,7 +13,7 @@ export async function PATCH(
   { params }: { params: { courseId: string } }
 ) {
   try {
-    const { userId } = auth();
+    const { userId } = await auth();
     const { courseId } = params;
     const values = await req.json();
 
@@ -43,7 +43,7 @@ export async function DELETE(
   { params }: { params: { courseId: string } }
 ) {
   try {
-    const { userId } = auth();
+    const { userId } = await auth();
     const { courseId } = params;
 
     if (!userId) {

@@ -1,6 +1,6 @@
 import getChapter from "@/actions/getChapter";
 import Banner from "@/components/banner";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
 import VideoPlayer from "./_components/VideoPlayer";
@@ -18,7 +18,7 @@ type Props = {
 };
 
 const ChapterIdPage: React.FC<Props> = async ({ params }) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) return redirect("/");
 
@@ -94,7 +94,8 @@ const ChapterIdPage: React.FC<Props> = async ({ params }) => {
                     href={attachment.url}
                     key={attachment.id}
                     target="_blank"
-                    className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline">
+                    className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline"
+                  >
                     <File className="w-6 h-6 mr-2" />
                     <p className="line-clamp-1">{attachment.name}</p>
                   </a>

@@ -1,12 +1,12 @@
 import prisma from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 export async function PUT(
   req: Request,
   { params }: { params: { courseId: string } }
 ) {
   try {
-    const { userId } = auth();
+    const { userId } = await auth();
     const { list } = await req.json();
 
     if (!userId) {

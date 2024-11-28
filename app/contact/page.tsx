@@ -1,14 +1,22 @@
+"use client";
 import { CTA } from "./_components/cta";
 import { ContactInfo } from "./_components/contact-info";
 import { ContactHero } from "./_components/contact-hero";
 import { ContactForm } from "./_components/contact-form";
 import { FAQ } from "./_components/faqs";
-import { LocationMap } from "./_components/location-map";
 import Footer from "@/components/landingcomps/Footer";
+import Header from "@/components/landingcomps/Header";
+import dynamic from "next/dynamic";
+
+const LazyMap = dynamic(() => import("./_components/location-map"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <Header />
       <main className="flex-1">
         <ContactHero />
         <section className="w-full py-12 md:py-24 lg:py-32 bg-background dark:bg-gray-800">
@@ -20,7 +28,7 @@ export default function ContactPage() {
           </div>
         </section>
         <FAQ />
-        <LocationMap />
+        <LazyMap />
         <CTA />
       </main>
       <Footer />

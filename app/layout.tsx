@@ -9,8 +9,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LMS Platform by parma",
-  description: "LMS Platform",
+  title: "Wepz academy",
+  description: "Wepz academy LMS",
   icons: {
     icon: "/icon.svg",
   },

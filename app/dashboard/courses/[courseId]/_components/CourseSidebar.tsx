@@ -1,5 +1,5 @@
 import prisma from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -14,7 +14,7 @@ type Props = {
 };
 
 const CourseSidebar: React.FC<Props> = async ({ course, progressCount }) => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) return redirect("/");
 
